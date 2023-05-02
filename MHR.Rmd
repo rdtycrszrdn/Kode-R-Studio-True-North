@@ -1,0 +1,128 @@
+---
+title: "MHR"
+author: "Arditya Criszardin"
+date: "2023-05-02"
+output: html_document
+---
+
+```{r}
+# GABUNGAN ATURAN COSINUS UNTUK SISI
+# input konstanta dari pengguna
+a <- as.numeric(readline("Masukkan nilai a: "))
+b <- as.numeric(readline("Masukkan nilai b: "))
+c <- as.numeric(readline("Masukkan nilai c: "))
+
+# menghitung nilai sin a, cos a, dan sin c dari konstanta yang dimasukkan pengguna
+sin_a <- sin(a)
+cos_a <- cos(a)
+cos_c <- cos(c)
+sin_c <- sin(c)
+
+# menghitung nilai cot b dari konstanta yang dimasukkan pengguna
+cot_b <- 1/tan(b)
+
+# menghitung nilai cot B menggunakan rumus yang diberikan
+cot_B <- (sin_a * cot_b - cos_a * cos_c)/sin_c
+
+# mencetak hasil perhitungan
+cat("Hasil perhitungan (sin a cot b - cos a cos C)/sin C adalah:", cot_B, "\n")
+
+```
+
+
+
+
+
+```{r}
+# ANALOGI NAPIER
+# input konstanta dari pengguna
+A <- as.numeric(readline("Masukkan nilai A: "))
+B <- as.numeric(readline("Masukkan nilai B: "))
+C <- as.numeric(readline("Masukkan nilai C: "))
+a <- as.numeric(readline("Masukkan nilai a: "))
+b <- as.numeric(readline("Masukkan nilai b: "))
+
+# menghitung nilai sin1/2(a-b) dan cos1/2(a-b) dari konstanta yang dimasukkan pengguna
+sin_half_ab <- sin((a-b)/2)
+cos_half_ab <- cos((a-b)/2)
+
+# menghitung nilai cot1/2C dari konstanta yang dimasukkan pengguna
+cot_half_c <- 1/tan(C/2)
+
+# menghitung nilai (tan1/2(A-B))/cot1/2C menggunakan rumus yang diberikan
+left_term <- tan((A-B)/2)/cot_half_c
+right_term <- sin_half_ab/sin((a-b)/2)
+equation_1 <- left_term == right_term
+
+# mencetak hasil perhitungan
+cat("Hasil perhitungan (tan1/2(A-B))/cot1/2C = (sin1/2(a-b)/(sin1/2(a-b)) adalah:", equation_1, "\n")
+
+# menghitung nilai (tan1/2(A+B))/cot1/2C menggunakan rumus yang diberikan
+left_term <- tan((A+B)/2)/cot_half_c
+right_term <- cos_half_ab/cos((a-b)/2)
+equation_2 <- left_term == right_term
+
+# mencetak hasil perhitungan
+cat("Hasil perhitungan (tan1/2(A+B))/cot1/2C = (cos1/2(a-b)/(cos1/2(a-b)) adalah:", equation_2, "\n")
+```
+
+
+
+
+
+```{r}
+# MENGGUNAKAN SEGITIGA SIKU - SIKU
+# input konstanta dari pengguna
+a <- as.numeric(readline("Masukkan nilai a: "))
+b <- as.numeric(readline("Masukkan nilai b: "))
+C <- as.numeric(readline("Masukkan nilai C: "))
+
+# menghitung nilai Y, X, dan h dari konstanta yang dimasukkan pengguna
+Y <- b + acos(tan(a)*cos(C))
+X <- Y + b
+h <- sin(a)*sin(C)
+
+# menghitung nilai cot y, sin h, dan cot X menggunakan rumus yang diberikan
+cot_y <- h/cot(Y)
+sin_h <- h
+cot_X <- cos(a)*tan(C)
+
+# menghitung nilai B menggunakan rumus yang diberikan
+B <- X - Y
+
+# mencetak hasil perhitungan
+cat("Hasil perhitungan cot y adalah:", cot_y, "\n")
+cat("Hasil perhitungan sin h adalah:", sin_h, "\n")
+cat("Hasil perhitungan cot X adalah:", cot_X, "\n")
+cat("Hasil perhitungan B adalah:", B, "\n")
+```
+
+
+
+
+
+```{r}
+# MENGGUNAKAN HAVERSIN
+# input konstanta dari pengguna
+a <- as.numeric(readline("Masukkan nilai a: "))
+b <- as.numeric(readline("Masukkan nilai b: "))
+c <- as.numeric(readline("Masukkan nilai c: "))
+
+# menghitung nilai s dari konstanta yang dimasukkan pengguna
+s <- (a + b + c) / 2
+
+# menghitung nilai hav B menggunakan rumus yang diberikan
+hav_B <- sin(s - a) * sin(s - c) / (sin(a) * sin(c) * sin(b))
+
+# menghitung nilai hav C menggunakan rumus yang diberikan
+hav_C <- hav(a - b) + sin(a) * sin(b) * hav(c)
+
+# mencetak hasil perhitungan
+cat("Hasil perhitungan hav B adalah:", hav_B, "\n")
+cat("Hasil perhitungan hav C adalah:", hav_C, "\n")
+
+```
+
+
+
+
